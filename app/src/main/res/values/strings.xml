@@ -1,4 +1,3 @@
-
 <resources>
     <string name="app_name">Chat Application</string>
 
@@ -7,4 +6,8 @@
     <string name="login.button.signin">Iniciar sesión</string>
     <string name="login.button.signup">Crear Cuenta</string>
 
+    <!--ERROR MESSAGES-->
+    <string name="login.error.message.signin">Imposible iniciar sesión %s</string>
+    <string name="login.error.message.signup">Imposible registrar nuevo usuario %s</string>
+    <string name="login.notice.message.signup">Usuario agregado exitosamente</string>
 </resources>
