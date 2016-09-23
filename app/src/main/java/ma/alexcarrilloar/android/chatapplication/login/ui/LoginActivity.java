@@ -1,4 +1,4 @@
-package ma.alexcarrilloar.android.chatapplication.login;
+package ma.alexcarrilloar.android.chatapplication.login.ui;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -15,6 +15,9 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import ma.alexcarrilloar.android.chatapplication.R;
 import ma.alexcarrilloar.android.chatapplication.contactlist.ContactListActivity;
+import ma.alexcarrilloar.android.chatapplication.login.LoginPresenter;
+import ma.alexcarrilloar.android.chatapplication.login.LoginPresenterImpl;
+import ma.alexcarrilloar.android.chatapplication.login.ui.LoginView;
 
 public class LoginActivity extends AppCompatActivity implements LoginView {
 
@@ -71,15 +74,21 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
     @OnClick(R.id.btnSignup)
     @Override
     public void handleSignUp() {
-        loginPresenter.registerNewUser(inputEmail.getText().toString(),
-                inputPassword.getText().toString());
+        if(inputEmail.getText().toString().trim().equals("") && inputPassword.getText().toString().trim().equals(""))
+        {
+            loginPresenter.registerNewUser(inputEmail.getText().toString(),
+                    inputPassword.getText().toString());
+        }
+
     }
 
     @OnClick(R.id.btnSignin)
     @Override
     public void handleSignIn() {
-        loginPresenter.validateLogin(inputEmail.getText().toString(),
-            inputPassword.getText().toString());
+        if(inputEmail.getText().toString().trim().equals("") && inputPassword.getText().toString().trim().equals("")) {
+            loginPresenter.validateLogin(inputEmail.getText().toString(),
+                    inputPassword.getText().toString());
+        }
     }
 
     @Override
@@ -90,20 +99,19 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
     @Override
     public void loginError(String error) {
         inputPassword.setText("");
-        String msgError = String.format(getString(R.string.login_button_signin),error);
+        String msgError = String.format(getString(R.string.login_error_message_signin),error);
         inputPassword.setError(msgError);
     }
 
     @Override
     public void newUserSuccess() {
         Snackbar.make(layoutMainContainer,R.string.login_notice_message_signup,Snackbar.LENGTH_SHORT).show();
-
     }
 
     @Override
     public void newUserError(String error) {
         inputPassword.setText("");
-        String msgError = String.format(getString(R.string.login_button_signup),error);
+        String msgError = String.format(getString(R.string.login_error_message_signup),error);
         inputPassword.setError(msgError);
     }
 

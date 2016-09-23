@@ -4,10 +4,10 @@ package ma.alexcarrilloar.android.chatapplication.lib;
  * Created by alexcarrilloar on 9/18/16.
  */
 public class EventBusImpl implements EventBus {
-    private de.greenrobot.event.EventBus eventBus;
+    private org.greenrobot.eventbus.EventBus eventBus;
 
     public EventBusImpl() {
-        eventBus = de.greenrobot.event.EventBus.getDefault();
+        eventBus = org.greenrobot.eventbus.EventBus.getDefault();
     }
 
     public static class SingletoneHolder {
