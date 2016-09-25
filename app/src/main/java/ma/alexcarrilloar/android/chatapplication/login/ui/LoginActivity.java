@@ -14,10 +14,9 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import ma.alexcarrilloar.android.chatapplication.R;
-import ma.alexcarrilloar.android.chatapplication.contactlist.ContactListActivity;
+import ma.alexcarrilloar.android.chatapplication.contactlist.ui.ContactListActivity;
 import ma.alexcarrilloar.android.chatapplication.login.LoginPresenter;
 import ma.alexcarrilloar.android.chatapplication.login.LoginPresenterImpl;
-import ma.alexcarrilloar.android.chatapplication.login.ui.LoginView;
 
 public class LoginActivity extends AppCompatActivity implements LoginView {
 
@@ -74,7 +73,7 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
     @OnClick(R.id.btnSignup)
     @Override
     public void handleSignUp() {
-        if(inputEmail.getText().toString().trim().equals("") && inputPassword.getText().toString().trim().equals(""))
+        if(!inputEmail.getText().toString().trim().equals("") && !inputPassword.getText().toString().trim().equals(""))
         {
             loginPresenter.registerNewUser(inputEmail.getText().toString(),
                     inputPassword.getText().toString());
@@ -85,7 +84,7 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
     @OnClick(R.id.btnSignin)
     @Override
     public void handleSignIn() {
-        if(inputEmail.getText().toString().trim().equals("") && inputPassword.getText().toString().trim().equals("")) {
+        if(!inputEmail.getText().toString().trim().equals("") && !inputPassword.getText().toString().trim().equals("")) {
             loginPresenter.validateLogin(inputEmail.getText().toString(),
                     inputPassword.getText().toString());
         }
