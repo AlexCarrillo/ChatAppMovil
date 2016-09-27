@@ -1,5 +1,6 @@
 package ma.alexcarrilloar.android.chatapplication.contactlist.ui;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -18,6 +19,7 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import ma.alexcarrilloar.android.chatapplication.R;
 import ma.alexcarrilloar.android.chatapplication.addcontact.ui.AddContactFragment;
+import ma.alexcarrilloar.android.chatapplication.chat.ui.ChatActivity;
 import ma.alexcarrilloar.android.chatapplication.contactlist.ContactListPresenter;
 import ma.alexcarrilloar.android.chatapplication.contactlist.ContactListPresenterImpl;
 import ma.alexcarrilloar.android.chatapplication.contactlist.adapters.ContactListAdapter;
@@ -111,7 +113,11 @@ public class ContactListActivity extends AppCompatActivity implements ContactLis
 
     @Override
     public void onItemClick(User user) {
-        Toast.makeText(this, user.getEmail(), Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(this, ChatActivity.class);
+        intent.putExtra(ChatActivity.EMAIL_KEY,user.getEmail());
+        intent.putExtra(ChatActivity.ONLINE_KEY,user.isOnline());
+
+        startActivity(intent);
 
     }
 
