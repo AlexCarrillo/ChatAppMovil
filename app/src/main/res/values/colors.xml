@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#303F9F</color>
-    <color name="colorAccent">#FF4081</color>
+    <color name="colorPrimary">#1A237E</color>
+    <color name="colorPrimaryDark">#000000</color>
+    <color name="colorAccent">#f66205</color>
+
+    <color name="color_chat_sender">#303F9F</color>
+    <color name="color_chat_receiver">#FF4081</color>
+    <string name="color_online">#00B703</string>
+    <string name="color_offline">#D50000</string>
+    <color name="color_boton_enviar">#FF6F01</color>
 </resources>

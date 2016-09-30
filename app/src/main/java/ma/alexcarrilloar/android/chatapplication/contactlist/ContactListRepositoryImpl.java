@@ -35,6 +35,14 @@ public class ContactListRepositoryImpl implements ContactListRepository {
 
     @Override
     public void changeConnectionStatus(Boolean online) {
+        try
+        {
+            helper.changeUserConnectionStatus(online);
+
+        }catch(Exception ex)
+        {
+
+        }
 
     }
 
@@ -93,7 +101,7 @@ public class ContactListRepositoryImpl implements ContactListRepository {
     }
 
     @Override
-    public void unsubscribeoContactListEvents() {
+    public void unsubscribeToContactListEvents() {
         if(contactEventListener !=null)
         {
             helper.getMyContactsReference().removeEventListener(contactEventListener);

@@ -70,6 +70,7 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
     public void hideProgress() {
         progressBar.setVisibility(View.GONE);
     }
+
     @OnClick(R.id.btnSignup)
     @Override
     public void handleSignUp() {
@@ -78,7 +79,9 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
             loginPresenter.registerNewUser(inputEmail.getText().toString(),
                     inputPassword.getText().toString());
         }
-
+        else{
+            loginError(getString(R.string.login_error_message_signup));
+        }
     }
 
     @OnClick(R.id.btnSignin)
@@ -87,6 +90,10 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
         if(!inputEmail.getText().toString().trim().equals("") && !inputPassword.getText().toString().trim().equals("")) {
             loginPresenter.validateLogin(inputEmail.getText().toString(),
                     inputPassword.getText().toString());
+        }
+        else{
+
+           loginError(getString(R.string.login_error_message_signin));
         }
     }
 

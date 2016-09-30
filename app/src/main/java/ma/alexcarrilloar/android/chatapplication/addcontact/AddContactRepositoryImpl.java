@@ -17,21 +17,28 @@ import ma.alexcarrilloar.android.chatapplication.lib.EventBusImpl;
 public class AddContactRepositoryImpl implements AddContactRepository {
     private FirebaseHelper helper;
     private EventBus eventBus;
+    private User user;
 
     public AddContactRepositoryImpl() {
         helper = FirebaseHelper.getInstance();
         eventBus = EventBusImpl.getInstance();
+
     }
 
     @Override
     public void addContact(final String email) {
         final String key = email.replace(".","_");
-        DatabaseReference userReference = helper.getUserReference(email);
+        final DatabaseReference userReference = helper.getUserReference(email);
+
+
         userReference.addListenerForSingleValueEvent(new ValueEventListener() {
+
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                User user = dataSnapshot.getValue(User.class);
-                if(user!=null)
+
+                 user = dataSnapshot.getValue(User.class);
+
+                if(user != null)
                 {
                     DatabaseReference myContactReference = helper.getMyContactsReference();
                     myContactReference.child(key).setValue(user.isOnline());

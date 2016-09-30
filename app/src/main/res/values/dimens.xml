@@ -5,4 +5,5 @@
     <dimen name="contact_image_size">48dp</dimen>
     <dimen name="fab_margin">16dp</dimen>
     <dimen name="chat_margin">3dp</dimen>
+    <dimen name="chat_message_content">12dp</dimen>
 </resources>

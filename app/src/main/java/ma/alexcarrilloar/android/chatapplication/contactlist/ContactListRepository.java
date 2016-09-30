@@ -10,7 +10,7 @@ public interface ContactListRepository {
 
 
     void subscribeToContactListEvents();
-    void unsubscribeoContactListEvents();
+    void unsubscribeToContactListEvents();
     void destroyListener();
     void removeContact(String email);
 }

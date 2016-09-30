@@ -8,19 +8,46 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:id="@+id/layoutMainContainer"
-    tools:context=".login.ui.LoginActivity">
+    tools:context=".login.ui.LoginActivity"
+    android:background="@drawable/blurred_city">
 
     <!--EditText de la contraseña-->
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/button"
+            android:background="#b20a1542"
+            android:layout_gravity="left|bottom" />
+    </FrameLayout>
+
     <android.support.design.widget.TextInputLayout
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
-        android:layout_above="@+id/wrapperPassword">
+        android:layout_above="@+id/wrapperPassword"
+        android:layout_marginLeft="3dp"
+        android:layout_marginRight="3dp"
+        android:foreground="#ffffff"
+        android:theme="@style/ThemeAppBase"
+        android:foregroundTint="#ffffff"
+        android:backgroundTint="#ffffff">
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/editTxtEmail"
         android:hint="@string/login.message.email"
-        android:ems="10" />
+        android:ems="10"
+        android:foreground="#ffffff"
+        android:textSize="20dp"
+        android:theme="@style/ThemeAppBase"
+        android:textColorLink="#ffffff"
+        android:textColorHint="#ffffff"
+        android:textColorHighlight="#ffffff"
+        android:textColor="#ffffff" />
     </android.support.design.widget.TextInputLayout>
 
 
@@ -29,7 +56,14 @@
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
         android:id="@+id/wrapperPassword"
-        android:layout_above="@+id/layoutButtons">
+        android:layout_above="@+id/layoutButtons"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="3dp"
+        android:layout_marginRight="3dp"
+        android:foregroundTint="#ffffff"
+        android:theme="@style/ThemeAppBase"
+        android:foreground="#ffffff"
+        android:backgroundTint="#ffffff">
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -37,7 +71,14 @@
         android:inputType="textPassword"
         android:layout_below="@+id/editText"
         android:hint="@string/login.message.password"
-        />
+        android:foreground="#ffffff"
+        android:textSize="20dp"
+        android:textColor="#ffffff"
+        android:textColorHint="#ffffff"
+        android:textColorHighlight="#ffffff"
+        android:theme="@style/ThemeAppBase"
+        android:textColorLink="#ffffff"
+        android:foregroundTint="#ffffff" />
     </android.support.design.widget.TextInputLayout>
 
 
@@ -47,19 +88,28 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/layoutButtons"
-        android:layout_centerInParent="true">
+        android:layout_centerInParent="true"
+        android:weightSum="1">
 
         <Button
-            android:layout_width="wrap_content"
+            android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:text="@string/login.button.signin"
-            android:id="@+id/btnSignin" />
+            android:id="@+id/btnSignin"
+            android:background="#f66205"
+            android:textColor="#ffffff"
+            android:layout_weight="2.35" />
 
         <Button
-            android:layout_width="wrap_content"
+            android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:text="@string/login.button.signup"
-            android:id="@+id/btnSignup" />
+            android:id="@+id/btnSignup"
+            android:textColor="#ffffff"
+            android:contextClickable="true"
+            android:focusableInTouchMode="true"
+            android:background="#f66205"
+            android:layout_marginLeft="5dp" />
     </LinearLayout>
 
 <!--Progress Bar-->
@@ -71,5 +121,7 @@
         android:id="@+id/progressBar"
         android:layout_below="@id/layoutButtons"
         android:layout_centerHorizontal="true"
-        />
+        android:foregroundTint="#ff8000"
+        android:layout_marginTop="20dp" />
+
 </RelativeLayout>
